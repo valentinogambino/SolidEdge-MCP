@@ -16,3 +16,7 @@ reference/typelib_dump.json
 
 # coverage data (uv run pytest --cov)
 .coverage
+.claude/skills/
+.agents/skills/
+.claude/agents/
+.codex/agents/
