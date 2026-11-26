@@ -1,6 +1,6 @@
 """Fail when ``hasattr`` is used to test what a COM proxy can do.
 
-CLAUDE.md's rule, and it is not theoretical. On a late-bound proxy the probe is
+AGENTS.md's rule, and it is not theoretical. On a late-bound proxy the probe is
 a separate ``GetIDsOfNames`` round trip that reads False both for a member that
 is genuinely absent and for one whose getter merely raised, so a real error
 becomes a silent "unsupported".

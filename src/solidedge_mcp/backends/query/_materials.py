@@ -373,7 +373,7 @@ class MaterialsMixin(QueryManagerBase):
         come from the active sheet.
 
         This used to gate on ``hasattr(doc, "Layers")``, which is the probe
-        CLAUDE.md forbids: it reads False both for a member that is genuinely
+        AGENTS.md forbids: it reads False both for a member that is genuinely
         absent and for one whose getter merely raised, and either way every
         layer call on a draft answered "Active document does not support
         layers" -- for a document type whose layers are a core drafting

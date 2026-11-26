@@ -1,6 +1,6 @@
 """Find ``hasattr`` used to test what a COM proxy can do.
 
-CLAUDE.md's rule: never ``hasattr()`` a COM proxy to test capability. On a
+AGENTS.md's rule: never ``hasattr()`` a COM proxy to test capability. On a
 late-bound proxy the probe is a separate ``GetIDsOfNames`` round trip whose
 failure mode is version dependent, and it reads False both for a member that is
 genuinely absent and for one whose getter merely raised -- turning a real error
