@@ -1,6 +1,6 @@
 """Verify backends/constants.py against the scraped Solid Edge type libraries.
 
-CLAUDE.md makes the type library the source of truth for every COM enum value,
+AGENTS.md makes the type library the source of truth for every COM enum value,
 but nothing enforced it: a wrong value silently produces wrong geometry, and an
 audit found 15 of them. This test closes that loop.
 

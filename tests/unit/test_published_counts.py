@@ -1,9 +1,9 @@
 """The counts the docs publish must be the counts the server registers.
 
 Every number in ``reference/VERIFICATION_STATUS.md`` and the ``Surface:`` line
-of ``CLAUDE.md`` is meant to be measured, not estimated -- and they drift the
+of ``AGENTS.md`` is meant to be measured, not estimated -- and they drift the
 moment nobody re-measures. Both were wrong on the day this test was written:
-the status document said 119 tools and CLAUDE.md said 117, because one count
+the status document said 119 tools and AGENTS.md said 117, because one count
 had included ``def register_tool`` itself and the other had never been updated.
 The real number was 118.
 
@@ -23,7 +23,7 @@ from solidedge_mcp.server import create_server
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 STATUS = ROOT / "reference" / "VERIFICATION_STATUS.md"
-CLAUDE = ROOT / "CLAUDE.md"
+AGENTS = ROOT / "AGENTS.md"
 
 
 @pytest.fixture(scope="module")
@@ -66,14 +66,14 @@ class TestVerificationStatusIsMeasured:
 
 class TestClaudeMdSurfaceLine:
     def test_matches_the_server(self, registered):
-        text = CLAUDE.read_text(encoding="utf-8")
+        text = AGENTS.read_text(encoding="utf-8")
         match = re.search(
             r"^Surface:\s*(\d+) tools,\s*(\d+) data resources \+ (\d+) guide resources",
             text,
             re.MULTILINE,
         )
         assert match, (
-            "CLAUDE.md has no 'Surface: N tools, M data resources + K guide resources' line"
+            "AGENTS.md has no 'Surface: N tools, M data resources + K guide resources' line"
         )
         tools, data, guides = (int(g) for g in match.groups())
         assert (tools, data, guides) == (
@@ -81,6 +81,6 @@ class TestClaudeMdSurfaceLine:
             registered["data_resources"],
             registered["guides"],
         ), (
-            f"CLAUDE.md says {tools}/{data}/{guides}; the server registers "
+            f"AGENTS.md says {tools}/{data}/{guides}; the server registers "
             f"{registered['tools']}/{registered['data_resources']}/{registered['guides']}."
         )

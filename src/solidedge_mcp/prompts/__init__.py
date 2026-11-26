@@ -1,7 +1,7 @@
 """MCP prompt templates and the server instructions string.
 
 Prompts are conversation starters an MCP client can offer the user. They
-carry the workflow knowledge that used to live only in CLAUDE.md, so an LLM
+carry the workflow knowledge that used to live only in AGENTS.md, so an LLM
 driving this server from any client sees the same guidance.
 """
 

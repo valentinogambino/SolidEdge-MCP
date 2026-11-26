@@ -562,7 +562,7 @@ class TestDeleteLayer:
 class TestLayersOnADraft:
     """A DraftDocument has no Layers of its own; a Sheet does.
 
-    The gate here used to be hasattr(doc, "Layers"), the probe CLAUDE.md
+    The gate here used to be hasattr(doc, "Layers"), the probe AGENTS.md
     forbids, so every layer call on a draft answered "Active document does not
     support layers" -- for the document type where layers matter most.
     """
